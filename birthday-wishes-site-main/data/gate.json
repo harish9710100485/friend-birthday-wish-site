@@ -1,0 +1,9 @@
+{
+  "title": "The Friendship Archives",
+  "subtitle": "Enter the password to unlock ten years of memories.",
+  "placeholder": "Password",
+  "unlockLabel": "Unlock",
+  "wrongMessage": "That password missed the group chat. Try again.",
+  "hintButtonLabel": "Need a hint?",
+  "hints": ["Bro, try first 8 numbers"]
+}

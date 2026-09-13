@@ -1,0 +1,165 @@
+{
+  "site": {
+    "title": "Happy Birthday, Bro",
+    "description": "A birthday time capsule for my closest friend"
+  },
+  "hero": {
+    "loadingSteps": ["Finding our school memories...", "Our best memories found.", "Ready for your birthday surprise, bro."],
+    "title": "Happy Birthday, Bro",
+    "subtitle": "From school days and shared rides to endless talks, games, guidance, and laughter, you have been one of the most important people in my life.",
+    "audioSrc": "/audio/65-roses-hi-nanna.mp3",
+    "audioLabel": "The soundtrack of our school-day memories."
+  },
+  "story": {
+    "chapter": "Chapter 1 · Where it began",
+    "title": "From School Friends to Family",
+    "slides": [
+      { "title": "We met at school", "description": "What started as a school friendship slowly became one of the closest and most trusted bonds in my life." },
+      { "title": "The shared rides", "description": "Those rides were never just journeys. They were our time to talk, laugh, share stories, and make ordinary days special." },
+      { "title": "Talk, play, repeat", "description": "From serious conversations to silly games, we have always found a way to enjoy time together." },
+      { "title": "You guided me", "description": "Whenever I felt lost, your advice, patience, and kindness helped me find my way again." }
+    ]
+  },
+  "timeline": {
+    "chapter": "Chapter 2 · Our journey",
+    "title": "From School Days Until Now",
+    "entries": [
+      {
+        "year": "2018",
+        "title": "School brought us together",
+        "description": "We started as classmates and slowly became the friends who could always count on each other.",
+        "photo": null
+      },
+      {
+        "year": "2019",
+        "title": "The shared-ride days",
+        "description": "Every ride gave us another chance to talk about school, life, dreams, and absolutely everything else.",
+        "photo": null
+      },
+      {
+        "year": "2020",
+        "title": "The endless conversations",
+        "description": "We could start with one small topic and somehow talk for hours without running out of things to say.",
+        "photo": null
+      },
+      {
+        "year": "2021",
+        "title": "The fun and games",
+        "description": "Playing together, joking around, and making each other laugh gave us memories I will always keep.",
+        "photo": null
+      },
+      {
+        "year": "2022",
+        "title": "Your loyal heart",
+        "description": "Even when life changed around us, you stayed loyal and continued to stand beside me.",
+        "photo": null
+      },
+      {
+        "year": "2023",
+        "title": "Your kindness",
+        "description": "You have always treated me with patience and kindness, even when I did not know how much I needed it.",
+        "photo": null
+      },
+      {
+        "year": "2024",
+        "title": "The times you guided me",
+        "description": "Your advice helped me through many moments. You never made me feel alone when I needed direction.",
+        "photo": null
+      },
+      {
+        "year": "2025",
+        "title": "Still close after all these years",
+        "description": "Time passed, but our friendship stayed strong because we kept choosing to be there for each other.",
+        "photo": null
+      },
+      {
+        "year": "2026",
+        "title": "Still close after all these years",
+        "description": "The rides, talks, games, advice, jokes, and quiet moments all built the friendship I treasure today.",
+        "photo": null
+      }
+    ]
+  },
+  "reasons": {
+    "chapter": "Chapter 3 · Why you matter",
+    "title": "The Friend I Can Always Trust",
+    "intro": "After all our school days and every chapter since then, I know exactly why your friendship means so much to me, bro.",
+    "items": [
+      {
+        "title": "You are loyal",
+        "description": "You stayed beside me through different seasons of life. Your loyalty is something I will never take for granted.",
+        "tag": "Always there"
+      },
+      {
+        "title": "You are kind",
+        "description": "Your kindness shows in the way you listen, help, encourage, and make people feel valued.",
+        "tag": "Good heart"
+      },
+      {
+        "title": "You guide me",
+        "description": "Many times when I was confused or struggling, you gave me honest advice and helped me move forward.",
+        "tag": "My guide"
+      },
+      {
+        "title": "You make life lighter",
+        "description": "Talking, playing, laughing, and simply being around you can turn even an ordinary day into a good memory.",
+        "tag": "My closest friend"
+      }
+    ]
+  },
+  "gallery": {
+    "chapter": "Chapter 4 · Our memories",
+    "title": "The School-Day Archives",
+    "photos": [
+      {
+        "title": "One of our old memories",
+        "caption": "An old moment with my bro, and one more memory I will always keep.",
+        "src": "/photos/friendship.jpeg"
+      }
+    ]
+  },
+  "voice": {
+    "chapter": "Chapter 5 · From me to you",
+    "title": "A Birthday Message for My Bro",
+    "intro": "Press play for a message from me to the friend who has stood by me since our school days.",
+    "caption": "Happy birthday, bro. Thank you for being loyal, kind, and guiding me through so much.",
+    "audioSrc": "/audio/just_the_way_you_are.mp3"
+  },
+  "gift": {
+    "chapter": "Chapter 6 · A note for you",
+    "title": "Open My Birthday Letter",
+    "intro": "A small letter for my bro, the friend who has been close to my heart since school.",
+    "buttonLabel": "Open the gift",
+    "buttonLabelOpening": "Opening...",
+    "buttonLabelOpened": "Opened",
+    "tapToOpenLabel": "Tap to open",
+    "letterText": "Dear bro,\n\nWe started as friends at school, sharing rides, talking about everything, playing together, and slowly becoming closer than I ever expected. From those school days until now, this friendship has become one of the greatest gifts in my life.\n\nThank you for always being loyal and kind. Thank you for guiding me many times when I did not know what to do, and for giving me the confidence to keep going. Your advice and support have meant more to me than I can explain.\n\nHappy Birthday, bro. I hope this year brings you the same happiness and goodness you have given to the people around you. I am truly lucky to have you as my friend.\n\nWith gratitude,\nHarish"
+  },
+  "cake": {
+    "chapter": "Chapter 7 · Make a wish",
+    "title": "Blow out the candles",
+    "image": "/photos/cake.jpg",
+    "intro": "Make a wish, then blow into your mic — or tap the button if you'd rather not.",
+    "micButtonLabel": "Allow microphone",
+    "blowButtonLabel": "Blow Candles",
+    "listeningLabel": "Listening... or tap here",
+    "blownLabel": "Candles out",
+    "micDeniedText": "Mic unavailable, no problem — the button works too.",
+    "wishText": "Wish granted. May your birthday be as kind and wonderful as you are."
+  },
+  "ending": {
+    "title": "Happy Birthday, Bro",
+    "line1": "Thank you for being loyal, kind, and always there for me.",
+    "line2": "From school days until now, our friendship keeps growing."
+  },
+  "easterEggs": {
+    "moonMessage": "From school days to now, we have shared rides, conversations, games, and countless memories under the same sky.",
+    "heartNote": "You found the hidden note. I am endlessly grateful for your loyalty, kindness, and all the times you guided me.",
+    "hintPrompt": "There are a couple of friendship secrets hiding on this page.",
+    "hintMoon": "Something is glowing in the corner of the sky. A school-day memory is waiting.",
+    "hintHeart": "Hold this one a little longer. Some friendships deserve a proper thank you.",
+    "hintOneMore": "Nice! One more friendship secret is waiting to be found.",
+    "hintAwesome": "You found both friendship secrets!",
+    "hintWaitingLabel": "Go find it!"
+  }
+}
