@@ -1,5 +1,5 @@
 "use client"
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
 
@@ -8,8 +8,24 @@ const { moonMessage: moonMessageText, heartNote: heartNoteText } = content.easte
 export default function EasterEggs(){
   const [moonMessage, setMoonMessage] = useState(false)
   const [heartNote, setHeartNote] = useState(false)
+  const [visible, setVisible] = useState(false)
   const pressTimer = useRef<number | null>(null)
   const { phase, hintTarget, markFound } = useInteractive()
+
+  useEffect(() => {
+    function updateVisibility(){
+      const distanceFromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight)
+      setVisible(distanceFromBottom <= 80)
+    }
+
+    updateVisibility()
+    window.addEventListener('scroll', updateVisibility, { passive: true })
+    window.addEventListener('resize', updateVisibility)
+    return () => {
+      window.removeEventListener('scroll', updateVisibility)
+      window.removeEventListener('resize', updateVisibility)
+    }
+  }, [])
 
   function startPress(){
     pressTimer.current = window.setTimeout(() => {
@@ -26,10 +42,11 @@ export default function EasterEggs(){
   }
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-30">
+    <div aria-hidden={!visible} className={`fixed inset-0 z-30 transition-opacity duration-500 ${visible ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}>
       <button
         aria-label="moon"
-        className={`pointer-events-auto fixed right-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
+        tabIndex={visible ? 0 : -1}
+        className={`pointer-events-auto fixed right-6 bottom-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
         onClick={() => {
           setMoonMessage(true)
           markFound('moon')
@@ -39,7 +56,8 @@ export default function EasterEggs(){
       </button>
       <button
         aria-label="friendship note"
-        className={`pointer-events-auto fixed left-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
+        tabIndex={visible ? 0 : -1}
+        className={`pointer-events-auto fixed left-6 bottom-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
         onMouseDown={startPress}
         onMouseUp={cancelPress}
         onMouseLeave={cancelPress}
