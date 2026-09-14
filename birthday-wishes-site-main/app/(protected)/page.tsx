@@ -55,7 +55,7 @@ export default function Page(){
   }, [])
 
   return (
-    <main className={`relative min-h-screen text-[#193B4A] ${phase === 2 ? 'phase-two' : ''}`}>
+    <main className="relative min-h-screen text-[#193B4A]">
       <FloatingStars />
       <EasterEggs />
       <ScrollNav />
@@ -89,7 +89,7 @@ export default function Page(){
                 >
                   {ambientPlaying ? '❚❚' : '▶'}
                 </button>
-                <span className="text-sm opacity-80">{heroAudioLabel}</span>
+                <span className="text-sm opacity-80">{phase === 2 ? phaseTwoAudioLabel : heroAudioLabel}</span>
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function Page(){
           </div>
         </section>
       ) : (
-        <>
+        <div className="phase-two">
           <section id="phase-two" className="phase-banner py-20">
             <div className="mx-auto max-w-3xl px-6 text-center">
               <div className="phase-kicker">{phaseTwoChapter}</div>
@@ -118,12 +118,20 @@ export default function Page(){
             </div>
           </section>
           <BossBattle />
-        </>
+          <VoiceMessage />
+          <GiftBox />
+          <CakeSection />
+          <Ending />
+        </div>
       )}
-      <VoiceMessage />
-      <GiftBox />
-      <CakeSection />
-      <Ending />
+      {phase === 1 && (
+        <div className="phase-one-finale">
+          <VoiceMessage />
+          <GiftBox />
+          <CakeSection />
+          <Ending />
+        </div>
+      )}
     </main>
   )
 }

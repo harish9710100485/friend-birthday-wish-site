@@ -6,11 +6,17 @@ import content from '../data/content.json'
 const MAX_HEALTH = 100
 const MAX_PLAYER_HEALTH = 3
 const { bossName, bossIntro, attackLabel, chargedAttackLabel, victory, defeat } = content.phaseTwo
+const TECHNIQUES = [
+  { name: 'Ashen Riposte', school: 'Dark Souls', icon: '⚔', damage: 14, description: 'Wait for the opening, then answer the darkness.' },
+  { name: 'Mikiri Step', school: 'Sekiro', icon: '◈', damage: 18, description: 'Step through danger and turn the pressure back.' },
+  { name: 'Great Rune Surge', school: 'Elden Ring', icon: '✦', damage: 12, description: 'Draw on an old promise for a steady strike.' },
+]
 
 export default function BossBattle(){
   const [bossHealth, setBossHealth] = useState(MAX_HEALTH)
   const [playerHealth, setPlayerHealth] = useState(MAX_PLAYER_HEALTH)
   const [cooldown, setCooldown] = useState(false)
+  const [activeTechnique, setActiveTechnique] = useState(0)
   const [won, setWon] = useState(false)
   const [lost, setLost] = useState(false)
   const { celebrate } = useInteractive()
@@ -58,6 +64,30 @@ export default function BossBattle(){
         <div className="phase-kicker">Boss encounter</div>
         <h2 className="mt-3 text-4xl font-semibold text-[#F7E8C8] sm:text-5xl">{bossName}</h2>
         <p className="mx-auto mt-5 max-w-xl text-[#D8C8B5]">{bossIntro}</p>
+        <div className="arsenal-card mt-8 text-left">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <div className="phase-kicker">Choose your discipline</div>
+              <p className="mt-2 text-sm text-[#D8C8B5]">Borrowed legends. Your own fight.</p>
+            </div>
+            <span className="arsenal-mark">✧</span>
+          </div>
+          <div className="mt-5 grid gap-2 sm:grid-cols-3">
+            {TECHNIQUES.map((technique, index) => (
+              <button
+                key={technique.name}
+                className={`technique-card ${activeTechnique === index ? 'technique-card-active' : ''}`}
+                onClick={() => setActiveTechnique(index)}
+                aria-pressed={activeTechnique === index}
+              >
+                <span className="text-2xl">{technique.icon}</span>
+                <span className="mt-2 block text-xs font-bold uppercase tracking-[0.12em]">{technique.name}</span>
+                <span className="mt-1 block text-[0.65rem] uppercase tracking-[0.14em] text-[#E7B56A]">{technique.school}</span>
+              </button>
+            ))}
+          </div>
+          <p className="mt-4 text-sm italic text-[#D8C8B5]">{TECHNIQUES[activeTechnique].description}</p>
+        </div>
         <div className="boss-arena mt-10">
           <div className="boss-mark">☠</div>
           <div className="mt-6 text-left">
@@ -69,8 +99,8 @@ export default function BossBattle(){
           </div>
           {!won && !lost && (
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <button className="battle-button" disabled={cooldown} onClick={() => strike(12)}>{attackLabel}</button>
-              <button className="battle-button battle-button-heavy" disabled={cooldown} onClick={() => strike(25)}>{chargedAttackLabel}</button>
+              <button className="battle-button" disabled={cooldown} onClick={() => strike(TECHNIQUES[activeTechnique].damage)}>{attackLabel}</button>
+              <button className="battle-button battle-button-heavy" disabled={cooldown} onClick={() => strike(TECHNIQUES[activeTechnique].damage + 10)}>{chargedAttackLabel}</button>
             </div>
           )}
           {(won || lost) && <p className="mt-8 text-lg text-[#F7E8C8]">{won ? victory : defeat}</p>}

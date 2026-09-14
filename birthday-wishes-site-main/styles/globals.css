@@ -134,6 +134,17 @@ h1, h2, h3 {
   background-clip: text;
 }
 
+.phase-two .bg-card {
+  background: rgba(26, 17, 24, 0.9);
+  border-color: rgba(231, 181, 106, 0.22);
+  color: #f7e8c8;
+}
+
+.phase-two .text-\[\#193B4A\],
+.phase-two .text-\[\#3D0F28\] {
+  color: #f7e8c8 !important;
+}
+
 .phase-two h2,
 .phase-two h3 {
   color: #f7e8c8;
@@ -197,6 +208,34 @@ h1, h2, h3 {
   box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
 }
 
+.arsenal-card {
+  border: 1px solid rgba(231, 181, 106, 0.2);
+  background: rgba(18, 13, 18, 0.72);
+  padding: 1.25rem;
+}
+
+.arsenal-mark {
+  color: #e7b56a;
+  font-size: 1.8rem;
+}
+
+.technique-card {
+  min-height: 8rem;
+  border: 1px solid rgba(216, 200, 181, 0.18);
+  background: rgba(48, 30, 38, 0.5);
+  padding: 0.85rem;
+  text-align: left;
+  color: #f7e8c8;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.technique-card:hover,
+.technique-card-active {
+  border-color: rgba(231, 181, 106, 0.8);
+  background: rgba(91, 42, 43, 0.72);
+  transform: translateY(-2px);
+}
+
 .boss-sigil,
 .boss-mark {
   color: #d64b4b;
@@ -217,9 +256,9 @@ h1, h2, h3 {
   transition: width 260ms ease;
 }
 
-main.phase-two [class*="text-[#6B2247"],
-main.phase-two [class*="text-[#8A6478"],
-main.phase-two [class*="text-[#B23A73"] {
+.phase-two [class*="text-[#6B2247"],
+.phase-two [class*="text-[#8A6478"],
+.phase-two [class*="text-[#B23A73"] {
   color: #d8c8b5 !important;
 }
 
