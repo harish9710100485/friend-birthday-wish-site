@@ -52,7 +52,7 @@ export default function Page(){
 
     document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [phase])
 
   return (
     <main className="relative min-h-screen text-[#193B4A]">

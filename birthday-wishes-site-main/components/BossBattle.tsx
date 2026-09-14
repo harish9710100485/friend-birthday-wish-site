@@ -106,7 +106,12 @@ export default function BossBattle(){
             </div>
           )}
           {!won && !lost && cooldown && <p className="mt-4 text-xs uppercase tracking-[0.2em] text-[#D64B4B]">Recovering...</p>}
-          {(won || lost) && <p className="mt-8 text-lg text-[#F7E8C8]">{won ? victory : defeat}</p>}
+          {(won || lost) && (
+            <div className="mt-8">
+              <p className="phase-kicker">{won ? 'Boss defeated' : 'You fell'}</p>
+              <p className="mt-2 text-lg text-[#F7E8C8]">{won ? victory : defeat}</p>
+            </div>
+          )}
           {lost && <button className="battle-button mt-6" onClick={restart}>Rise again</button>}
         </div>
       </div>
