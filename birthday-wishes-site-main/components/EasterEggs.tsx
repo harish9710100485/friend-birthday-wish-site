@@ -1,5 +1,6 @@
 "use client"
 import { useRef, useState } from 'react'
+import { GiBatWing, GiMoon } from 'react-icons/gi'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
 
@@ -35,7 +36,7 @@ export default function EasterEggs(){
           markFound('moon')
         }}
       >
-        🌙
+        <GiMoon className="text-2xl" />
       </button>
       <button
         aria-label="friendship note"
@@ -46,7 +47,7 @@ export default function EasterEggs(){
         onTouchStart={startPress}
         onTouchEnd={cancelPress}
       >
-      🤝
+        <GiBatWing className="text-2xl" />
       </button>
 
       {moonMessage && (
