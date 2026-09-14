@@ -1,7 +1,6 @@
 "use client"
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
-import { getLenis } from '../lib/lenis'
 import content from '../data/content.json'
 
 const { moonMessage: moonMessageText, heartNote: heartNoteText } = content.easterEggs
@@ -9,29 +8,8 @@ const { moonMessage: moonMessageText, heartNote: heartNoteText } = content.easte
 export default function EasterEggs(){
   const [moonMessage, setMoonMessage] = useState(false)
   const [heartNote, setHeartNote] = useState(false)
-  const [visible, setVisible] = useState(false)
   const pressTimer = useRef<number | null>(null)
   const { phase, hintTarget, markFound } = useInteractive()
-
-  useEffect(() => {
-    function updateVisibility(scrollValue = window.scrollY){
-      const distanceFromBottom = document.documentElement.scrollHeight - (scrollValue + window.innerHeight)
-      setVisible(distanceFromBottom <= 80)
-    }
-
-    updateVisibility()
-    const lenis = getLenis()
-    const handleLenisScroll = ({ scroll }: { scroll: number }) => updateVisibility(scroll)
-    const handleWindowScroll = () => updateVisibility()
-    lenis?.on('scroll', handleLenisScroll)
-    window.addEventListener('scroll', handleWindowScroll, { passive: true })
-    window.addEventListener('resize', handleWindowScroll)
-    return () => {
-      lenis?.off('scroll', handleLenisScroll)
-      window.removeEventListener('scroll', handleWindowScroll)
-      window.removeEventListener('resize', handleWindowScroll)
-    }
-  }, [phase])
 
   function startPress(){
     pressTimer.current = window.setTimeout(() => {
@@ -48,10 +26,10 @@ export default function EasterEggs(){
   }
 
   return (
-    <div aria-hidden={!visible} className={`fixed inset-0 z-30 transition-opacity duration-500 ${visible ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}>
+    <div className="pointer-events-none fixed inset-0 z-30">
       <button
         aria-label="moon"
-        tabIndex={visible ? 0 : -1}
+        tabIndex={0}
         className={`pointer-events-auto fixed right-6 bottom-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
         onClick={() => {
           setMoonMessage(true)
@@ -62,7 +40,7 @@ export default function EasterEggs(){
       </button>
       <button
         aria-label="friendship note"
-        tabIndex={visible ? 0 : -1}
+        tabIndex={0}
         className={`pointer-events-auto fixed left-6 bottom-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
         onMouseDown={startPress}
         onMouseUp={cancelPress}
