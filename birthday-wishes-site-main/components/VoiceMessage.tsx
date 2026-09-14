@@ -39,16 +39,16 @@ export default function VoiceMessage(){
   return (
     <section id="voice" data-reveal className="py-24">
       <div className="max-w-2xl mx-auto px-6 text-center">
-        <div className="text-sm uppercase tracking-[0.4em] text-[#D6488F] mb-4">{chapter}</div>
+        <div className="text-sm uppercase tracking-[0.4em] text-[#D7B56D] mb-4">{chapter}</div>
         <h2 className="text-4xl md:text-5xl font-semibold text-gradient-friendship mb-8">{title}</h2>
-        <p className="mx-auto mb-8 max-w-md text-[#6B2247]/80">{intro}</p>
+        <p className="mx-auto mb-8 max-w-md text-[#C9B997]/80">{intro}</p>
         <button
           onClick={toggle}
-          className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-pink-400 via-fuchsia-500 to-rose-400 text-3xl text-black shadow-glow transition hover:scale-105"
+          className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d7b56d,#f0dca0)] text-3xl text-[#161812] shadow-glow transition hover:scale-105"
         >
-          {playing ? '❚❚' : '▶'}
+          {playing ? '∥' : '▸'}
         </button>
-        <p className="mt-6 text-[#8A6478]">{caption}</p>
+        <p className="mt-6 text-[#C9B997]">{caption}</p>
       </div>
     </section>
   )

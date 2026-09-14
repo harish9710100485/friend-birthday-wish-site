@@ -83,9 +83,9 @@ export default function Page(){
                 <button
                   aria-label={ambientPlaying ? 'Pause' : 'Play'}
                   onClick={toggleAmbient}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-pink-400 text-base font-semibold text-black transition hover:brightness-110"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#D7B56D] text-base font-semibold text-[#161812] transition hover:brightness-110"
                 >
-                  {ambientPlaying ? '❚❚' : '▶'}
+                  {ambientPlaying ? '∥' : '▸'}
                 </button>
                 <span className="text-sm opacity-80">{heroAudioLabel}</span>
               </div>

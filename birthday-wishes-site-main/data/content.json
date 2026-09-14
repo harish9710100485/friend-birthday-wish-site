@@ -7,8 +7,8 @@
     "loadingSteps": ["Finding our school memories...", "Our best memories found.", "Ready for your birthday surprise, bro."],
     "title": "Happy Birthday, Bro",
     "subtitle": "From school days and shared rides to endless talks, games, guidance, and laughter, you have been one of the most important people in my life.",
-    "audioSrc": "/audio/65-roses-hi-nanna.mp3",
-    "audioLabel": "The soundtrack of our school-day memories."
+    "audioSrc": "/audio/Dark Souls III Main Theme (Dark Souls III) - Spring 2023 Concert.mp3",
+    "audioLabel": "Dark Souls III Main Theme — Spring 2023 Concert"
   },
   "story": {
     "chapter": "Chapter 1 · Where it began",
@@ -123,7 +123,7 @@
     "title": "A Birthday Message for My Bro",
     "intro": "Press play for a message from me to the friend who has stood by me since our school days.",
     "caption": "Happy birthday, bro. Thank you for being loyal, kind, and guiding me through so much.",
-    "audioSrc": "/audio/just_the_way_you_are.mp3"
+    "audioSrc": "/audio/DON'T YOU DARE GO HOLLOW.mp3"
   },
   "gift": {
     "chapter": "Chapter 6 · A note for you",
