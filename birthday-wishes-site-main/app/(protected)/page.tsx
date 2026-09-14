@@ -11,14 +11,16 @@ import PolaroidGallery from '../../components/PolaroidGallery'
 import ReasonsSection from '../../components/ReasonsSection'
 import VoiceMessage from '../../components/VoiceMessage'
 import Ending from '../../components/Ending'
+import BossBattle from '../../components/BossBattle'
 import EasterEggs from '../../components/EasterEggs'
 import ScrollNav from '../../components/ScrollNav'
 import content from '../../data/content.json'
 
 const { loadingSteps, title: heroTitle, subtitle: heroSubtitle, audioLabel: heroAudioLabel } = content.hero
+const { chapter: phaseTwoChapter, title: phaseTwoTitle, intro: phaseTwoIntro, enterLabel: phaseTwoEnterLabel, audioLabel: phaseTwoAudioLabel } = content.phaseTwo
 
 export default function Page(){
-  const { ambientPlaying, toggleAmbient } = useInteractive()
+  const { phase, startPhaseTwo, ambientPlaying, toggleAmbient } = useInteractive()
   const [step, setStep] = useState(0)
   const [ready, setReady] = useState(false)
   const loadingLabel = useMemo(() => loadingSteps[step], [step])
@@ -50,7 +52,7 @@ export default function Page(){
 
     document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [phase])
 
   return (
     <main className="relative min-h-screen text-[#193B4A]">
@@ -87,7 +89,7 @@ export default function Page(){
                 >
                   {ambientPlaying ? '❚❚' : '▶'}
                 </button>
-                <span className="text-sm opacity-80">{heroAudioLabel}</span>
+                <span className="text-sm opacity-80">{phase === 2 ? phaseTwoAudioLabel : heroAudioLabel}</span>
               </div>
             </div>
           </div>
@@ -97,10 +99,39 @@ export default function Page(){
       <Timeline />
       <ReasonsSection />
       <PolaroidGallery />
-      <VoiceMessage />
-      <GiftBox />
-      <CakeSection />
-      <Ending />
+      {phase === 1 ? (
+        <section id="phase-two" className="phase-gate relative overflow-hidden py-32">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <div className="phase-kicker">{phaseTwoChapter}</div>
+            <h2 className="mt-4 text-4xl font-semibold text-[#F7E8C8] sm:text-6xl">{phaseTwoTitle}</h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-[#D8C8B5]">{phaseTwoIntro}</p>
+            <button className="battle-button mt-10" onClick={() => { startPhaseTwo(); window.setTimeout(() => document.getElementById('boss-battle')?.scrollIntoView({ behavior: 'smooth' }), 50) }}>{phaseTwoEnterLabel}</button>
+          </div>
+        </section>
+      ) : (
+        <div className="phase-two">
+          <section id="phase-two" className="phase-banner py-20">
+            <div className="mx-auto max-w-3xl px-6 text-center">
+              <div className="phase-kicker">{phaseTwoChapter}</div>
+              <h2 className="mt-4 text-4xl font-semibold text-[#F7E8C8] sm:text-6xl">{phaseTwoTitle}</h2>
+              <p className="mx-auto mt-5 max-w-xl text-[#D8C8B5]">{phaseTwoAudioLabel}</p>
+            </div>
+          </section>
+          <BossBattle />
+          <VoiceMessage />
+          <GiftBox />
+          <CakeSection />
+          <Ending />
+        </div>
+      )}
+      {phase === 1 && (
+        <div className="phase-one-finale">
+          <VoiceMessage />
+          <GiftBox />
+          <CakeSection />
+          <Ending />
+        </div>
+      )}
     </main>
   )
 }

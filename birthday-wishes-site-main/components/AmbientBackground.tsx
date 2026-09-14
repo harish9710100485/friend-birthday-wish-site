@@ -1,3 +1,5 @@
+"use client"
+
 export default function AmbientBackground(){
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-[#FFF9EF]">

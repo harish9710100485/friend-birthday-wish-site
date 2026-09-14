@@ -9,7 +9,7 @@ export default function EasterEggs(){
   const [moonMessage, setMoonMessage] = useState(false)
   const [heartNote, setHeartNote] = useState(false)
   const pressTimer = useRef<number | null>(null)
-  const { hintTarget, markFound } = useInteractive()
+  const { phase, hintTarget, markFound } = useInteractive()
 
   function startPress(){
     pressTimer.current = window.setTimeout(() => {
@@ -29,24 +29,26 @@ export default function EasterEggs(){
     <div className="pointer-events-none fixed inset-0 z-30">
       <button
         aria-label="moon"
-        className={`pointer-events-auto fixed right-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
+        tabIndex={0}
+        className={`easter-egg-trigger ${phase === 2 ? 'easter-egg-trigger-dark' : ''} pointer-events-auto fixed right-6 bottom-6 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
         onClick={() => {
           setMoonMessage(true)
           markFound('moon')
         }}
       >
-        🌙
+        {phase === 2 ? '◈' : '🌙'}
       </button>
       <button
         aria-label="friendship note"
-        className={`pointer-events-auto fixed left-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
+        tabIndex={0}
+        className={`easter-egg-trigger ${phase === 2 ? 'easter-egg-trigger-dark' : ''} pointer-events-auto fixed left-6 bottom-6 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
         onMouseDown={startPress}
         onMouseUp={cancelPress}
         onMouseLeave={cancelPress}
         onTouchStart={startPress}
         onTouchEnd={cancelPress}
       >
-      🤝
+      {phase === 2 ? '⚔' : '🤝'}
       </button>
 
       {moonMessage && (
