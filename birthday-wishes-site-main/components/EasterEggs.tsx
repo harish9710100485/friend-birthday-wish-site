@@ -22,13 +22,14 @@ export default function EasterEggs(){
     updateVisibility()
     const lenis = getLenis()
     const handleLenisScroll = ({ scroll }: { scroll: number }) => updateVisibility(scroll)
+    const handleWindowScroll = () => updateVisibility()
     lenis?.on('scroll', handleLenisScroll)
-    window.addEventListener('scroll', updateVisibility, { passive: true })
-    window.addEventListener('resize', updateVisibility)
+    window.addEventListener('scroll', handleWindowScroll, { passive: true })
+    window.addEventListener('resize', handleWindowScroll)
     return () => {
       lenis?.off('scroll', handleLenisScroll)
-      window.removeEventListener('scroll', updateVisibility)
-      window.removeEventListener('resize', updateVisibility)
+      window.removeEventListener('scroll', handleWindowScroll)
+      window.removeEventListener('resize', handleWindowScroll)
     }
   }, [phase])
 
