@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from 'react'
 import { Howl } from 'howler'
+import { GiPauseButton, GiPlayButton } from 'react-icons/gi'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
 import { withBasePath } from '../lib/assetPath'
@@ -46,7 +47,7 @@ export default function VoiceMessage(){
           onClick={toggle}
           className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-pink-400 via-fuchsia-500 to-rose-400 text-3xl text-black shadow-glow transition hover:scale-105"
         >
-          {playing ? '❚❚' : '▶'}
+          {playing ? <GiPauseButton className="text-3xl" /> : <GiPlayButton className="text-3xl" />}
         </button>
         <p className="mt-6 text-[#8A6478]">{caption}</p>
       </div>

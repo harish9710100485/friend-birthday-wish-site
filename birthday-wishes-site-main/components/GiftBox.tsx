@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react'
+import { GiCrossedSwords } from 'react-icons/gi'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
 
@@ -51,7 +52,7 @@ export default function GiftBox() {
               aria-label={buttonLabel}
               className="mx-auto flex h-56 w-full items-center justify-center disabled:cursor-default"
             >
-              <span className={`text-[130px] leading-none ${opened ? 'animate-shake-letter' : ''}`}>🎁</span>
+              <GiCrossedSwords className={`text-[130px] leading-none text-[#D6488F] ${opened ? 'animate-shake-letter' : ''}`} />
             </button>
             <button
               onClick={handleOpen}
@@ -69,7 +70,7 @@ export default function GiftBox() {
             aria-label={tapToOpenLabel}
             className="mx-auto flex h-56 flex-col items-center justify-center gap-3 animate-pop-up"
           >
-            <span className="text-7xl animate-shake-letter">💌</span>
+            <GiCrossedSwords className="text-7xl animate-shake-letter text-[#D6488F]" />
             <span className="rounded-full bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#B23A73] shadow-glow">
               {tapToOpenLabel}
             </span>
