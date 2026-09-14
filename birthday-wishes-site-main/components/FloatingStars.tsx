@@ -1,9 +1,9 @@
 "use client"
 import { useEffect, useState } from 'react'
 
-const STAR_COUNT = 16
+const STAR_COUNT = 20
 
-type Star = { id: number; size: number; left: number; top: number; opacity: number }
+type Star = { id: number; size: number; left: number; top: number; opacity: number; color: string }
 
 export default function FloatingStars() {
   const [stars, setStars] = useState<Star[]>([])
@@ -11,13 +11,15 @@ export default function FloatingStars() {
   const [viewport, setViewport] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
+    const palette = ['#f5d28b', '#d6b070', '#9db5c9', '#f0eec9']
     setStars(
       Array.from({ length: STAR_COUNT }, (_, index) => ({
         id: index,
-        size: 3 + Math.random() * 4,
-        left: 8 + Math.random() * 82,
-        top: 8 + Math.random() * 82,
-        opacity: 0.4 + Math.random() * 0.5,
+        size: 3 + Math.random() * 5,
+        left: 6 + Math.random() * 88,
+        top: 8 + Math.random() * 84,
+        opacity: 0.25 + Math.random() * 0.6,
+        color: palette[index % palette.length],
       }))
     )
     setViewport({ width: window.innerWidth, height: window.innerHeight })
@@ -37,7 +39,7 @@ export default function FloatingStars() {
         return (
           <div
             key={star.id}
-            className="absolute rounded-full bg-[#FF8FC0] shadow-[0_0_18px_rgba(229,106,179,0.45)] transition-transform duration-300"
+            className="absolute rounded-full transition-transform duration-300"
             style={{
               width: `${star.size}px`,
               height: `${star.size}px`,
@@ -45,6 +47,8 @@ export default function FloatingStars() {
               top: `${star.top}%`,
               opacity: star.opacity,
               transform: `translate(${dx * 0.02}px, ${dy * 0.02}px)`,
+              background: `radial-gradient(circle, ${star.color} 0%, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0) 70%)`,
+              boxShadow: `0 0 16px ${star.color}`,
             }}
           />
         )
