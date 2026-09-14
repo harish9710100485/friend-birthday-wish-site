@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
+import { getLenis } from '../lib/lenis'
 import content from '../data/content.json'
 
 const { moonMessage: moonMessageText, heartNote: heartNoteText } = content.easterEggs
@@ -13,19 +14,23 @@ export default function EasterEggs(){
   const { phase, hintTarget, markFound } = useInteractive()
 
   useEffect(() => {
-    function updateVisibility(){
-      const distanceFromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight)
+    function updateVisibility(scrollValue = window.scrollY){
+      const distanceFromBottom = document.documentElement.scrollHeight - (scrollValue + window.innerHeight)
       setVisible(distanceFromBottom <= 80)
     }
 
     updateVisibility()
+    const lenis = getLenis()
+    const handleLenisScroll = ({ scroll }: { scroll: number }) => updateVisibility(scroll)
+    lenis?.on('scroll', handleLenisScroll)
     window.addEventListener('scroll', updateVisibility, { passive: true })
     window.addEventListener('resize', updateVisibility)
     return () => {
+      lenis?.off('scroll', handleLenisScroll)
       window.removeEventListener('scroll', updateVisibility)
       window.removeEventListener('resize', updateVisibility)
     }
-  }, [])
+  }, [phase])
 
   function startPress(){
     pressTimer.current = window.setTimeout(() => {
