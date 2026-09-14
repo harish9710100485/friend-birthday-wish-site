@@ -29,24 +29,24 @@ export default function EasterEggs(){
     <div className="pointer-events-none fixed inset-0 z-30">
       <button
         aria-label="moon"
-        className={`pointer-events-auto fixed right-6 top-6 text-2xl text-[#D7B56D] opacity-70 transition hover:opacity-100 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
+        className={`pointer-events-auto fixed right-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
         onClick={() => {
           setMoonMessage(true)
           markFound('moon')
         }}
       >
-        ☾
+        🌙
       </button>
       <button
-        aria-label="ember note"
-        className={`pointer-events-auto fixed left-6 top-6 text-2xl text-[#D7B56D] opacity-70 transition hover:opacity-100 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
+        aria-label="friendship note"
+        className={`pointer-events-auto fixed left-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
         onMouseDown={startPress}
         onMouseUp={cancelPress}
         onMouseLeave={cancelPress}
         onTouchStart={startPress}
         onTouchEnd={cancelPress}
       >
-      ✦
+      🤝
       </button>
 
       {moonMessage && (

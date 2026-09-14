@@ -98,10 +98,10 @@ export default function Ending(){
     <section id="ending" className="relative min-h-screen overflow-hidden py-24 pb-32">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       <div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center gap-6 px-6 text-center">
-        <div className="text-6xl text-[#D7B56D] drop-shadow-[0_0_18px_rgba(215,181,109,0.5)]">⚔</div>
+        <div className="text-6xl">🤝</div>
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-gradient-friendship">{title}</h2>
-        <p className="text-xl text-[#F5E8CB]/90">{line1}</p>
-        <p className="text-lg text-[#C9B997]">{line2}</p>
+        <p className="text-xl text-[#6B2247]/90">{line1}</p>
+        <p className="text-lg text-[#8A6478]">{line2}</p>
 
         <div className="mt-10 flex flex-col items-center gap-3">
           <p className="max-w-sm text-sm text-[#8A6478]">{hintText}</p>

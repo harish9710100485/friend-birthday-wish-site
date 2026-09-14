@@ -6,11 +6,11 @@ export default function AmbientAudioToggle(){
 
   return (
     <button
-      aria-label={ambientPlaying ? 'Pause music' : 'Play music'}
+      aria-label={ambientPlaying ? 'Pause ambient audio' : 'Play ambient audio'}
       onClick={toggleAmbient}
-      className="fixed left-6 bottom-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-[#D7B56D]/30 bg-[#12161a]/80 text-[#F5E8CB] shadow-glow backdrop-blur-xl transition hover:bg-[#1a201c]"
+      className="fixed left-6 bottom-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-[#E56AB3]/30 bg-white/70 text-[#6B2247] shadow-glow backdrop-blur-xl transition hover:bg-white/90"
     >
-      <span className="text-lg">{ambientPlaying ? '∥' : '▸'}</span>
+      <span className="text-lg">{ambientPlaying ? '❚❚' : '▶'}</span>
     </button>
   )
 }
