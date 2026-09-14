@@ -9,7 +9,7 @@ export default function EasterEggs(){
   const [moonMessage, setMoonMessage] = useState(false)
   const [heartNote, setHeartNote] = useState(false)
   const pressTimer = useRef<number | null>(null)
-  const { hintTarget, markFound } = useInteractive()
+  const { phase, hintTarget, markFound } = useInteractive()
 
   function startPress(){
     pressTimer.current = window.setTimeout(() => {
@@ -35,7 +35,7 @@ export default function EasterEggs(){
           markFound('moon')
         }}
       >
-        🌙
+        {phase === 2 ? '◈' : '🌙'}
       </button>
       <button
         aria-label="friendship note"
@@ -46,7 +46,7 @@ export default function EasterEggs(){
         onTouchStart={startPress}
         onTouchEnd={cancelPress}
       >
-      🤝
+      {phase === 2 ? '⚔' : '🤝'}
       </button>
 
       {moonMessage && (

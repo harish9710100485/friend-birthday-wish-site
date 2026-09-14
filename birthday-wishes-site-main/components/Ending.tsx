@@ -11,7 +11,7 @@ const { hintPrompt, hintMoon, hintHeart, hintOneMore, hintAwesome, hintWaitingLa
 
 export default function Ending(){
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
-  const { foundMoon, foundHeart, hintTarget, requestHint, resetEggs } = useInteractive()
+  const { phase, foundMoon, foundHeart, hintTarget, requestHint, resetEggs } = useInteractive()
 
   const bothFound = foundMoon && foundHeart
   const oneFound = foundMoon !== foundHeart
@@ -98,7 +98,7 @@ export default function Ending(){
     <section id="ending" className="relative min-h-screen overflow-hidden py-24 pb-32">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       <div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center gap-6 px-6 text-center">
-        <div className="text-6xl">🤝</div>
+        <div className="text-6xl">{phase === 2 ? '🏆' : '🤝'}</div>
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-gradient-friendship">{title}</h2>
         <p className="text-xl text-[#6B2247]/90">{line1}</p>
         <p className="text-lg text-[#8A6478]">{line2}</p>

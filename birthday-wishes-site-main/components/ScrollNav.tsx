@@ -8,6 +8,8 @@ const sections = [
   { id: 'timeline', label: 'Timeline' },
   { id: 'reasons', label: 'Reasons' },
   { id: 'gallery', label: 'Gallery' },
+  { id: 'phase-two', label: 'Phase II' },
+  { id: 'boss-battle', label: 'Final Battle' },
   { id: 'voice', label: 'Voice' },
   { id: 'gift', label: 'Gift' },
   { id: 'cake', label: 'Cake' },

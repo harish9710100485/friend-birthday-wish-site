@@ -1,6 +1,10 @@
+"use client"
+import { useInteractive } from '../context/InteractiveProvider'
+
 export default function AmbientBackground(){
+  const { phase } = useInteractive()
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#FFF9EF]">
+    <div className={`fixed inset-0 -z-10 overflow-hidden ${phase === 2 ? 'phase-two-background' : 'bg-[#FFF9EF]'}`}>
       <div className="absolute -top-[10%] left-[-15%] h-[70vh] w-[70vh] rounded-full bg-[radial-gradient(circle,_rgba(154,214,210,0.7),_transparent_70%)] blur-2xl animate-drift-slow" />
       <div className="absolute top-[5%] right-[-20%] h-[80vh] w-[80vh] rounded-full bg-[radial-gradient(circle,_rgba(255,190,137,0.55),_transparent_70%)] blur-2xl animate-drift-slower" />
       <div className="absolute bottom-[-20%] left-[10%] h-[65vh] w-[65vh] rounded-full bg-[radial-gradient(circle,_rgba(120,190,202,0.4),_transparent_70%)] blur-2xl animate-drift-slow" />
