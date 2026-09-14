@@ -97,12 +97,15 @@ export default function BossBattle(){
           <div className="mt-6 flex justify-center gap-2 text-xl" aria-label={`${playerHealth} lives remaining`}>
             {Array.from({ length: MAX_PLAYER_HEALTH }, (_, index) => <span key={index} className={index < playerHealth ? 'text-[#D64B4B]' : 'text-[#62494A]'}>◆</span>)}
           </div>
+          <p className="mt-3 text-xs uppercase tracking-[0.18em] text-[#D8C8B5]">Your resolve: {playerHealth}/{MAX_PLAYER_HEALTH} · the warden strikes every 1.8 seconds</p>
+          <p className="mt-3 text-sm text-[#E7B56A]">Choose a technique, then use Strike for a quick hit or Charged Strike for more damage and a longer cooldown.</p>
           {!won && !lost && (
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <button className="battle-button" disabled={cooldown} onClick={() => strike(TECHNIQUES[activeTechnique].damage)}>{attackLabel}</button>
               <button className="battle-button battle-button-heavy" disabled={cooldown} onClick={() => strike(TECHNIQUES[activeTechnique].damage + 10)}>{chargedAttackLabel}</button>
             </div>
           )}
+          {!won && !lost && cooldown && <p className="mt-4 text-xs uppercase tracking-[0.2em] text-[#D64B4B]">Recovering...</p>}
           {(won || lost) && <p className="mt-8 text-lg text-[#F7E8C8]">{won ? victory : defeat}</p>}
           {lost && <button className="battle-button mt-6" onClick={restart}>Rise again</button>}
         </div>
