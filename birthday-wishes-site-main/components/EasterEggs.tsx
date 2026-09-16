@@ -26,10 +26,11 @@ export default function EasterEggs(){
   }
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-30">
+    <div className="pointer-events-none fixed inset-0 z-[60]">
       <button
         aria-label="moon"
-        className={`pointer-events-auto fixed right-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
+        type="button"
+        className={`easter-egg-trigger pointer-events-auto fixed right-6 bottom-6 ${hintTarget === 'moon' ? 'animate-hint-zoom' : ''}`}
         onClick={() => {
           setMoonMessage(true)
           markFound('moon')
@@ -39,14 +40,15 @@ export default function EasterEggs(){
       </button>
       <button
         aria-label="friendship note"
-        className={`pointer-events-auto fixed left-6 top-6 text-2xl opacity-60 transition hover:opacity-100 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
+        type="button"
+        className={`easter-egg-trigger pointer-events-auto fixed left-6 bottom-6 ${hintTarget === 'heart' ? 'animate-heart-squeeze' : ''}`}
         onMouseDown={startPress}
         onMouseUp={cancelPress}
         onMouseLeave={cancelPress}
         onTouchStart={startPress}
         onTouchEnd={cancelPress}
       >
-      🤝
+        🤝
       </button>
 
       {moonMessage && (
