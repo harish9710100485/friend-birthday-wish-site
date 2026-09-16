@@ -113,6 +113,195 @@ h1, h2, h3 {
 
 .animate-heart-squeeze { animation: heart-squeeze 1s ease-in-out infinite; }
 
+.easter-egg-trigger {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(214, 72, 143, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #6b2247;
+  font-size: 1.45rem;
+  opacity: 0.92;
+  box-shadow: 0 10px 28px rgba(80, 35, 67, 0.2);
+  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.easter-egg-trigger:hover,
+.easter-egg-trigger:focus-visible {
+  opacity: 1;
+  background: #ffffff;
+  outline: 2px solid rgba(214, 72, 143, 0.5);
+  outline-offset: 3px;
+  transform: translateY(-3px);
+}
+
+.easter-egg-trigger-dark {
+  border-color: rgba(231, 181, 106, 0.7);
+  background: rgba(36, 24, 32, 0.96);
+  color: #f7e8c8;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+
+.easter-egg-trigger-dark:hover,
+.easter-egg-trigger-dark:focus-visible {
+  background: #4b252c;
+  outline-color: rgba(231, 181, 106, 0.8);
+}
+
+.phase-two-background {
+  background: #0d0b10;
+}
+
+.phase-two-background > div {
+  opacity: 0.2;
+  filter: grayscale(0.8) saturate(0.5);
+}
+
+.phase-two {
+  position: relative;
+  z-index: 0;
+  min-height: 100vh;
+  background: #0d0b10;
+  color: #d8c8b5;
+}
+
+.phase-two .text-gradient-friendship {
+  background: linear-gradient(90deg, #f7e8c8 0%, #d64b4b 58%, #e7b56a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.phase-two .bg-card {
+  background: rgba(26, 17, 24, 0.9);
+  border-color: rgba(231, 181, 106, 0.22);
+  color: #f7e8c8;
+}
+
+.phase-two .text-\[\#193B4A\],
+.phase-two .text-\[\#3D0F28\] {
+  color: #f7e8c8 !important;
+}
+
+.phase-two h2,
+.phase-two h3 {
+  color: #f7e8c8;
+}
+
+.phase-two .phase-banner,
+.phase-two .boss-battle {
+  background: #0d0b10;
+}
+
+.phase-two button:not(.battle-button) {
+  border-color: rgba(231, 181, 106, 0.35) !important;
+  background: #241820 !important;
+  color: #f7e8c8 !important;
+}
+
+.phase-gate {
+  background: linear-gradient(180deg, #171119 0%, #0d0b10 100%);
+}
+
+.phase-kicker {
+  color: #e7b56a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.battle-button {
+  border: 1px solid rgba(231, 181, 106, 0.55);
+  background: #241820;
+  color: #f7e8c8;
+  padding: 0.8rem 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.battle-button:hover:not(:disabled) {
+  border-color: #e7b56a;
+  background: #3b2026;
+  transform: translateY(-2px);
+}
+
+.battle-button:disabled {
+  cursor: wait;
+  opacity: 0.4;
+}
+
+.battle-button-heavy {
+  border-color: rgba(214, 75, 75, 0.7);
+  background: #3a171c;
+}
+
+.boss-arena {
+  border: 1px solid rgba(231, 181, 106, 0.25);
+  background: rgba(26, 17, 24, 0.88);
+  padding: 2rem;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+}
+
+.arsenal-card {
+  border: 1px solid rgba(231, 181, 106, 0.2);
+  background: rgba(18, 13, 18, 0.72);
+  padding: 1.25rem;
+}
+
+.arsenal-mark {
+  color: #e7b56a;
+  font-size: 1.8rem;
+}
+
+.technique-card {
+  min-height: 8rem;
+  border: 1px solid rgba(216, 200, 181, 0.18);
+  background: rgba(48, 30, 38, 0.5);
+  padding: 0.85rem;
+  text-align: left;
+  color: #f7e8c8;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.technique-card:hover,
+.technique-card-active {
+  border-color: rgba(231, 181, 106, 0.8);
+  background: rgba(91, 42, 43, 0.72);
+  transform: translateY(-2px);
+}
+
+.boss-sigil,
+.boss-mark {
+  color: #d64b4b;
+  text-shadow: 0 0 24px rgba(214, 75, 75, 0.65);
+}
+
+.boss-sigil { font-size: 3rem; }
+.boss-mark { font-size: 5rem; }
+
+.health-track {
+  height: 0.55rem;
+  background: #38262b;
+}
+
+.health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7e252e, #d64b4b);
+  transition: width 260ms ease;
+}
+
+.phase-two [class*="text-[#6B2247"],
+.phase-two [class*="text-[#8A6478"],
+.phase-two [class*="text-[#B23A73"] {
+  color: #d8c8b5 !important;
+}
+
 .cake-photo-scene {
   position: relative;
   width: 100%;

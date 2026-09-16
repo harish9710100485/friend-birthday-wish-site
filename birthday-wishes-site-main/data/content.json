@@ -10,6 +10,20 @@
     "audioSrc": "/audio/Dark Souls III Main Theme (Dark Souls III) - Spring 2023 Concert.mp3",
     "audioLabel": "Dark Souls III Main Theme — Spring 2023 Concert"
   },
+  "phaseTwo": {
+    "audioSrc": "/audio/3-35. The Final Battle.mp3",
+    "audioLabel": "The Final Battle",
+    "chapter": "Phase II · The Final Battle",
+    "title": "The Warmth Ends Here",
+    "intro": "The memories have made you strong. Face the final trial and prove this friendship can survive anything.",
+    "enterLabel": "Enter Phase II",
+    "bossName": "THE MEMORY WARDEN",
+    "bossIntro": "A harder fight. No shortcuts. Break its guard before it breaks yours.",
+    "attackLabel": "Strike",
+    "chargedAttackLabel": "Charged Strike",
+    "victory": "You have beaten the Soulslike trial. The Warden is dead, and the friendship remains undefeated.",
+    "defeat": "The Warden overwhelmed you. Rise again and finish the fight."
+  },
   "story": {
     "chapter": "Chapter 1 · Where it began",
     "title": "From School Friends to Family",
@@ -154,7 +168,7 @@
   },
   "easterEggs": {
     "moonMessage": "From school days to now, we have shared rides, conversations, games, and countless memories under the same sky.",
-    "heartNote": "You found the hidden note. I am endlessly grateful for your loyalty, kindness, and all the times you guided me.",
+    "heartNote": "You found the hidden note. I am endlessly grateful for your loyalty, kindness, and all the times you guided me.Daisuki",
     "hintPrompt": "There are a couple of friendship secrets hiding on this page.",
     "hintMoon": "Something is glowing in the corner of the sky. A school-day memory is waiting.",
     "hintHeart": "Hold this one a little longer. Some friendships deserve a proper thank you.",

@@ -9,6 +9,8 @@ import content from '../data/content.json'
 
 type Ctx = {
   celebrate: () => void
+  phase: 1 | 2
+  startPhaseTwo: () => void
   ambientPlaying: boolean
   toggleAmbient: () => void
   duckAmbient: () => void
@@ -33,6 +35,7 @@ export default function InteractiveProvider({ children }: { children: React.Reac
   const soundRef = useRef<Howl | null>(null)
   const wasDucked = useRef(false)
   const pauseTimeout = useRef<number | null>(null)
+  const [phase, setPhase] = useState<1 | 2>(1)
   const [ambientPlaying, setAmbientPlaying] = useState(false)
   const [foundMoon, setFoundMoon] = useState(false)
   const [foundHeart, setFoundHeart] = useState(false)
@@ -54,11 +57,13 @@ export default function InteractiveProvider({ children }: { children: React.Reac
     setHintTarget(null)
   }, [])
 
+  const startPhaseTwo = useCallback(() => setPhase(2), [])
+
   useKonami(()=>{ celebrate() })
   useEffect(()=>{ initLenis() }, [])
 
   useEffect(() => {
-    const src = content.hero.audioSrc
+    const src = phase === 1 ? content.hero.audioSrc : content.phaseTwo.audioSrc
     if (!src) return
     const sound = new Howl({ src: [withBasePath(src)], volume: 0, loop: true })
     soundRef.current = sound
@@ -85,7 +90,7 @@ export default function InteractiveProvider({ children }: { children: React.Reac
       window.removeEventListener('keydown', tryPlay)
       sound.unload()
     }
-  }, [])
+  }, [phase])
 
   const toggleAmbient = useCallback(() => {
     const sound = soundRef.current
@@ -124,8 +129,8 @@ export default function InteractiveProvider({ children }: { children: React.Reac
   }, [])
 
   const value = useMemo(
-    () => ({ celebrate, ambientPlaying, toggleAmbient, duckAmbient, restoreAmbient, foundMoon, foundHeart, hintTarget, requestHint, markFound, resetEggs }),
-    [celebrate, ambientPlaying, toggleAmbient, duckAmbient, restoreAmbient, foundMoon, foundHeart, hintTarget, requestHint, markFound, resetEggs]
+    () => ({ phase, startPhaseTwo, celebrate, ambientPlaying, toggleAmbient, duckAmbient, restoreAmbient, foundMoon, foundHeart, hintTarget, requestHint, markFound, resetEggs }),
+    [phase, startPhaseTwo, celebrate, ambientPlaying, toggleAmbient, duckAmbient, restoreAmbient, foundMoon, foundHeart, hintTarget, requestHint, markFound, resetEggs]
   )
 
   return (

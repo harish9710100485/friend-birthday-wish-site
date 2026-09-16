@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react'
+import { useInteractive } from '../context/InteractiveProvider'
 
 const PARTICLE_COUNT = 22
 const RISE_GLYPHS = ['✨', '⭐', '🎈', '🌼']
@@ -17,12 +18,13 @@ type Particle = {
 
 export default function FloatingHearts(){
   const [particles, setParticles] = useState<Particle[]>([])
+  const { phase } = useInteractive()
 
   useEffect(() => {
     setParticles(
       Array.from({ length: PARTICLE_COUNT }, (_, index) => {
         const isFlutter = index % 4 === 0
-        const glyphs = isFlutter ? FLUTTER_GLYPHS : RISE_GLYPHS
+        const glyphs = phase === 2 ? ['⚔', '◆', '☠'] : isFlutter ? FLUTTER_GLYPHS : RISE_GLYPHS
         return {
           id: index,
           left: Math.random() * 100,
@@ -34,10 +36,10 @@ export default function FloatingHearts(){
         }
       })
     )
-  }, [])
+  }, [phase])
 
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div className={`pointer-events-none fixed inset-0 overflow-hidden ${phase === 2 ? 'z-10' : '-z-10'}`}>
       {particles.map((particle) => (
         <span
           key={particle.id}
