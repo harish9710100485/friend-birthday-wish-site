@@ -115,40 +115,36 @@ h1, h2, h3 {
 
 .easter-egg-trigger {
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: 2.25rem;
+  height: 2.25rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(214, 72, 143, 0.35);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.42);
   color: #6b2247;
-  font-size: 1.45rem;
-  opacity: 0.92;
-  box-shadow: 0 10px 28px rgba(80, 35, 67, 0.2);
-  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+  font-size: 1.1rem;
+  opacity: 0.72;
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 
 .easter-egg-trigger:hover,
 .easter-egg-trigger:focus-visible {
-  opacity: 1;
-  background: #ffffff;
-  outline: 2px solid rgba(214, 72, 143, 0.5);
-  outline-offset: 3px;
-  transform: translateY(-3px);
+  opacity: 0.88;
+  outline: 1px solid rgba(214, 72, 143, 0.24);
+  outline-offset: 2px;
+  transform: translateY(-1px);
 }
 
 .easter-egg-trigger-dark {
-  border-color: rgba(231, 181, 106, 0.7);
-  background: rgba(36, 24, 32, 0.96);
+  border-color: rgba(231, 181, 106, 0.3);
+  background: rgba(36, 24, 32, 0.62);
   color: #f7e8c8;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28);
 }
 
 .easter-egg-trigger-dark:hover,
 .easter-egg-trigger-dark:focus-visible {
-  background: #4b252c;
-  outline-color: rgba(231, 181, 106, 0.8);
+  outline-color: rgba(231, 181, 106, 0.42);
 }
 
 .phase-two-background {
@@ -299,7 +295,7 @@ h1, h2, h3 {
 .phase-two [class*="text-[#6B2247"],
 .phase-two [class*="text-[#8A6478"],
 .phase-two [class*="text-[#B23A73"] {
-  color: #d8c8b5 !important;
+  color: #e0ae71 !important;
 }
 
 .cake-photo-scene {
