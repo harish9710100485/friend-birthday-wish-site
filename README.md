@@ -147,8 +147,8 @@ is recommended.
 
 ## Notes
 
-The sample assets included in this project are for demonstration purposes and may need to be replaced with your own photos, songs, and text before publishing publicly.
+The sample assets included in this project are for personal purposes and may need to be replaced with your own photos, songs, and text before publishing publicly.
 
 ## License
 
-This project is for personal use and customization. Please replace the sample content and assets with your own before sharing it publicly.
+This project has been customized for personal use as a birthday surprise.
