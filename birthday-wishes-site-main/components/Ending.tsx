@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 type Particle = { x: number; y: number; vx: number; vy: number; life: number; color: string }
 
@@ -98,7 +99,7 @@ export default function Ending(){
     <section id="ending" className="relative min-h-screen overflow-hidden py-24 pb-32">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       <div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center gap-6 px-6 text-center">
-        <div className="text-6xl">🤝</div>
+        <img src={withBasePath('/photos/gojo-hb.jpg')} alt="Birthday memories" className="h-24 w-24 rounded-full object-cover shadow-glow" />
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-gradient-friendship">{title}</h2>
         <p className="text-xl text-[#6B2247]/90">{line1}</p>
         <p className="text-lg text-[#8A6478]">{line2}</p>

@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 const { moonMessage: moonMessageText, heartNote: heartNoteText } = content.easterEggs
 
@@ -46,7 +47,7 @@ export default function EasterEggs(){
         onTouchStart={startPress}
         onTouchEnd={cancelPress}
       >
-      🤝
+        <img src={withBasePath('/photos/gojo-hb.jpg')} alt="Friendship note" className="h-10 w-10 rounded-full object-cover" />
       </button>
 
       {moonMessage && (
