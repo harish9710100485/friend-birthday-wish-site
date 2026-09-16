@@ -13,6 +13,11 @@ export default function Timeline(){
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-sm uppercase tracking-[0.4em] text-[#D6488F] mb-4">{chapter}</div>
         <h2 className="text-4xl md:text-5xl font-semibold text-gradient-friendship mb-12">{title}</h2>
+        <img
+          src={withBasePath('/photos/Peter And Ned Handshake GIF.gif')}
+          alt="Peter and Ned handshake"
+          className="mb-12 w-full rounded-3xl object-cover shadow-glow"
+        />
         <div className="relative border-l border-[#E56AB3]/25 pl-8">
           {entries.map((entry, index) => (
             <div key={index} className="relative mb-10 last:mb-0">
