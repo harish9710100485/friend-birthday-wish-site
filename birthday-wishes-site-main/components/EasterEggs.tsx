@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 const { moonMessage: moonMessageText, heartNote: heartNoteText } = content.easterEggs
 
@@ -36,7 +37,11 @@ export default function EasterEggs(){
           markFound('moon')
         }}
       >
-        {phase === 2 ? '◈' : '🌙'}
+        <img
+          src={withBasePath('/photos/easter1.jpg')}
+          alt="Moon Easter Egg"
+          className="h-9 w-9 rounded-full object-cover"
+        />
       </button>
       <button
         aria-label="friendship note"
@@ -48,7 +53,11 @@ export default function EasterEggs(){
         onTouchStart={startPress}
         onTouchEnd={cancelPress}
       >
-      {phase === 2 ? '⚔' : '🤝'}
+        <img
+          src={withBasePath('/photos/easter2.jpg')}
+          alt="Friendship Easter Egg"
+          className="h-9 w-9 rounded-full object-cover"
+        />
       </button>
 
       {moonMessage && (

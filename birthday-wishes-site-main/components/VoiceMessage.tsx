@@ -63,6 +63,11 @@ export default function VoiceMessage(){
       <div className="max-w-2xl mx-auto px-6 text-center">
         <div className="text-sm uppercase tracking-[0.4em] text-[#D6488F] mb-4">{chapter}</div>
         <h2 className="text-4xl md:text-5xl font-semibold text-gradient-friendship mb-8">{title}</h2>
+        <img
+          src={withBasePath('/photos/duo.jpg')}
+          alt="Two friends sharing a moment"
+          className="mx-auto mb-8 aspect-video w-full max-w-xl rounded-3xl object-cover shadow-glow"
+        />
         <p className="mx-auto mb-8 max-w-md text-[#6B2247]/80">{intro}</p>
         <button
           onClick={toggle}
