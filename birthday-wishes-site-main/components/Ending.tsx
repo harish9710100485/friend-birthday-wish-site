@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 type Particle = { x: number; y: number; vx: number; vy: number; life: number; color: string }
 
@@ -11,7 +12,7 @@ const { hintPrompt, hintMoon, hintHeart, hintOneMore, hintAwesome, hintWaitingLa
 
 export default function Ending(){
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
-  const { phase, foundMoon, foundHeart, hintTarget, requestHint, resetEggs } = useInteractive()
+  const { foundMoon, foundHeart, hintTarget, requestHint, resetEggs } = useInteractive()
 
   const bothFound = foundMoon && foundHeart
   const oneFound = foundMoon !== foundHeart
@@ -98,8 +99,17 @@ export default function Ending(){
     <section id="ending" className="relative min-h-screen overflow-hidden py-24 pb-32">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       <div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center gap-6 px-6 text-center">
-        <div className="text-6xl">{phase === 2 ? '🏆' : '🤝'}</div>
+        <img
+          src={withBasePath('/photos/gojo-hb.jpg')}
+          alt="Friendship memories"
+          className="h-24 w-24 rounded-full object-cover shadow-glow animate-gift-float"
+        />
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-gradient-friendship">{title}</h2>
+        <img
+          src={withBasePath('/photos/hbd.jpg')}
+          alt="Happy birthday celebration"
+          className="w-full max-w-2xl rounded-3xl object-cover shadow-glow"
+        />
         <p className="text-xl text-[#6B2247]/90">{line1}</p>
         <p className="text-lg text-[#8A6478]">{line2}</p>
 

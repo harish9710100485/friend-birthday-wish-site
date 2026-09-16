@@ -15,6 +15,7 @@ import BossBattle from '../../components/BossBattle'
 import EasterEggs from '../../components/EasterEggs'
 import ScrollNav from '../../components/ScrollNav'
 import content from '../../data/content.json'
+import { withBasePath } from '../../lib/assetPath'
 
 const { loadingSteps, title: heroTitle, subtitle: heroSubtitle, audioLabel: heroAudioLabel } = content.hero
 const { chapter: phaseTwoChapter, title: phaseTwoTitle, intro: phaseTwoIntro, enterLabel: phaseTwoEnterLabel, audioLabel: phaseTwoAudioLabel } = content.phaseTwo
@@ -67,6 +68,11 @@ export default function Page(){
           </div>
           <div className="space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-gradient-friendship text-shadow-lg">{heroTitle}</h1>
+            <img
+              src={withBasePath('/photos/Geralt Happy Birthday GIF.gif')}
+              alt="Geralt birthday celebration"
+              className="mx-auto w-full max-w-xl rounded-3xl object-cover shadow-glow"
+            />
             <p className="mx-auto max-w-3xl text-lg leading-8 text-[#6B2247]/85">{heroSubtitle}</p>
           </div>
           <div className="mx-auto flex items-center justify-center">

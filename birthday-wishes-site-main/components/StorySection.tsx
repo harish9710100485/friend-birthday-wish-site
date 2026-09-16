@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from 'react'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 const { chapter, title, slides } = content.story
 const EDGE_THRESHOLD = 4
@@ -42,6 +43,11 @@ export default function StorySection(){
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-sm uppercase tracking-[0.4em] text-[#D6488F] mb-4">{chapter}</div>
         <h2 className="text-4xl md:text-5xl font-semibold text-gradient-friendship mb-10">{title}</h2>
+        <img
+          src={withBasePath('/photos/kakashi-guy.gif')}
+          alt="Kakashi friendship moment"
+          className="mb-10 w-full max-w-2xl rounded-3xl object-cover shadow-glow"
+        />
         <div className="relative">
           <div
             ref={scrollerRef}

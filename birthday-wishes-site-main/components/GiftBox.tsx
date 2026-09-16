@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 const { chapter, title, intro, buttonLabel, buttonLabelOpening, tapToOpenLabel, letterText } = content.gift
 
@@ -10,7 +11,7 @@ export default function GiftBox() {
   const [envelopeReady, setEnvelopeReady] = useState(false)
   const [letterOpened, setLetterOpened] = useState(false)
   const [text, setText] = useState('')
-  const { phase, celebrate } = useInteractive()
+  const { celebrate } = useInteractive()
 
   useEffect(() => {
     if (!opened) return
@@ -51,7 +52,11 @@ export default function GiftBox() {
               aria-label={buttonLabel}
               className="mx-auto flex h-56 w-full items-center justify-center disabled:cursor-default"
             >
-              <span className={`text-[130px] leading-none ${opened ? 'animate-shake-letter' : ''}`}>{phase === 2 ? '🗝️' : '🎁'}</span>
+              <img
+                src={withBasePath('/photos/Frieren-gift.jpg')}
+                alt="Gift"
+                className={`h-40 w-40 rounded-3xl object-cover shadow-glow animate-gift-float ${opened ? 'animate-shake-letter' : ''}`}
+              />
             </button>
             <button
               onClick={handleOpen}
@@ -69,7 +74,11 @@ export default function GiftBox() {
             aria-label={tapToOpenLabel}
             className="mx-auto flex h-56 flex-col items-center justify-center gap-3 animate-pop-up"
           >
-            <span className="text-7xl animate-shake-letter">{phase === 2 ? '⚔️' : '💌'}</span>
+            <img
+              src={withBasePath('/photos/Frieren-gift.jpg')}
+              alt="Gift ready to open"
+              className="h-24 w-24 rounded-2xl object-cover shadow-glow animate-gift-float"
+            />
             <span className="rounded-full bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#B23A73] shadow-glow">
               {tapToOpenLabel}
             </span>

@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from 'react'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 const { chapter, title, intro, items } = content.reasons
 const EDGE_THRESHOLD = 4
@@ -43,6 +44,11 @@ export default function ReasonsSection() {
         <div className="text-sm uppercase tracking-[0.4em] text-[#D6488F] mb-4">{chapter}</div>
         <div className="mb-10 space-y-4">
           <h2 className="text-4xl md:text-5xl font-semibold text-gradient-friendship">{title}</h2>
+          <img
+            src={withBasePath('/photos/one piece zorro one piece sanji gif.gif')}
+            alt="Zoro and Sanji friendship moment"
+            className="w-full max-w-2xl rounded-3xl object-cover shadow-glow"
+          />
           <p className="max-w-2xl text-[#6B2247]/75 leading-8">{intro}</p>
         </div>
         <div className="relative">

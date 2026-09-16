@@ -2,15 +2,34 @@
 import { useEffect, useState } from 'react'
 import { useInteractive } from '../context/InteractiveProvider'
 import content from '../data/content.json'
+import { withBasePath } from '../lib/assetPath'
 
 const MAX_HEALTH = 100
 const MAX_PLAYER_HEALTH = 3
 const { bossName, bossIntro, attackLabel, chargedAttackLabel, victory, defeat } = content.phaseTwo
 const TECHNIQUES = [
-  { name: 'Ashen Riposte', school: 'Dark Souls', icon: '⚔', damage: 14, description: 'Wait for the opening, then answer the darkness.' },
-  { name: 'Mikiri Step', school: 'Sekiro', icon: '◈', damage: 18, description: 'Step through danger and turn the pressure back.' },
-  { name: 'Great Rune Surge', school: 'Elden Ring', icon: '✦', damage: 12, description: 'Draw on an old promise for a steady strike.' },
-]
+  {
+    name: 'Parry → Riposte',
+    school: 'Dark Souls',
+    icon: '⚔',
+    damage: 35,
+    description: 'Parry the impossible. Step forward. Riposte. No panic, no mercy.'
+  },
+  {
+    name: 'Mikiri Counter',
+    school: 'Sekiro',
+    icon: '◈',
+    damage: 40,
+    description: 'Step into the thrust. Break their posture. Hesitation is defeat.'
+  },
+  {
+    name: 'Visceral Attack',
+    school: 'Bloodborne',
+    icon: '✦',
+    damage: 45,
+    description: 'Stagger the beast. Close the distance. Tear the nightmare apart.'
+  }
+];
 
 export default function BossBattle(){
   const [bossHealth, setBossHealth] = useState(MAX_HEALTH)
@@ -63,6 +82,11 @@ export default function BossBattle(){
         <div className="boss-sigil mx-auto mb-6">⚔</div>
         <div className="phase-kicker">Boss encounter</div>
         <h2 className="mt-3 text-4xl font-semibold text-[#F7E8C8] sm:text-5xl">{bossName}</h2>
+        <img
+          src={withBasePath('/photos/Radahn solos.jpg')}
+          alt="Radahn standing victorious"
+          className="mx-auto mt-6 w-full max-w-2xl rounded-3xl border border-[#E7B56A]/25 object-cover shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+        />
         <p className="mx-auto mt-5 max-w-xl text-[#D8C8B5]">{bossIntro}</p>
         <div className="arsenal-card mt-8 text-left">
           <div className="flex items-center justify-between gap-4">
