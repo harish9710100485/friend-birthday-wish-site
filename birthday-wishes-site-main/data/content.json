@@ -7,12 +7,12 @@
     "loadingSteps": ["Finding our school memories...", "Our best memories found.", "Ready for your birthday surprise, bro."],
     "title": "Happy Birthday, Bro",
     "subtitle": "From school days and shared rides to endless talks, games, guidance, and laughter, you have been one of the most important people in my life.",
-    "audioSrc": "/audio/Dark Souls III Main Theme (Dark Souls III) - Spring 2023 Concert.mp3",
-    "audioLabel": "Dark Souls III Main Theme — Spring 2023 Concert"
+    "audioSrc": "/audio/Tame_Impala_-_Loser_(mp3.pm).mp3",
+    "audioLabel": "Tame Impala — Loser"
   },
   "phaseTwo": {
-    "audioSrc": "/audio/3-35. The Final Battle.mp3",
-    "audioLabel": "The Final Battle",
+    "audioSrc": "/audio/Tame_Impala_-_Loser_(mp3.pm).mp3",
+    "audioLabel": "Loser",
     "chapter": "Phase II · The Final Battle",
     "title": "The Warmth Ends Here",
     "intro": "The memories have made you strong. Face the final trial and prove this friendship can survive anything.",
