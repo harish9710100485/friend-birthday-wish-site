@@ -39,7 +39,7 @@ export default function FloatingHearts(){
   }, [phase])
 
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div className={`pointer-events-none fixed inset-0 overflow-hidden ${phase === 2 ? 'z-10' : '-z-10'}`}>
       {particles.map((particle) => (
         <span
           key={particle.id}
