@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Target Dash</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #171119;
+      color: #f7e8c8;
+      font: 600 16px system-ui, sans-serif;
+    }
+    main { width: min(100%, 720px); padding: 18px; text-align: center; }
+    header { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; color: #e7b56a; }
+    #arena {
+      position: relative;
+      height: min(62vh, 420px);
+      min-height: 280px;
+      overflow: hidden;
+      border: 1px solid #e7b56a66;
+      border-radius: 18px;
+      background: radial-gradient(circle at 50% 40%, #382137, #0e0b11 75%);
+      cursor: crosshair;
+    }
+    #target {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      display: none;
+      border: 4px solid #f7e8c8;
+      border-radius: 50%;
+      background: #d64b4b;
+      box-shadow: 0 0 0 8px #d64b4b55, 0 0 28px #e7b56a;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 22px;
+      background: #e7b56a;
+      color: #29151e;
+      font: inherit;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.12); }
+    #message { margin: 14px 0 0; color: #d8c8b5; }
+  </style>
+</head>
+<body>
+  <main>
+    <header><span>Target Dash</span><span>Score: <strong id="score">0</strong> · Time: <strong id="time">20</strong></span></header>
+    <div id="arena" aria-label="Game arena"><button id="target" aria-label="Hit target"></button></div>
+    <p id="message">Hit as many targets as you can in 20 seconds.</p>
+    <button id="start">Start game</button>
+  </main>
+  <script>
+    const arena = document.getElementById('arena');
+    const target = document.getElementById('target');
+    const scoreLabel = document.getElementById('score');
+    const timeLabel = document.getElementById('time');
+    const message = document.getElementById('message');
+    const start = document.getElementById('start');
+    let score = 0;
+    let time = 20;
+    let timer;
+
+    function moveTarget() {
+      const padding = 40;
+      const x = padding + Math.random() * (arena.clientWidth - padding * 2);
+      const y = padding + Math.random() * (arena.clientHeight - padding * 2);
+      target.style.left = x + 'px';
+      target.style.top = y + 'px';
+    }
+
+    function finish() {
+      clearInterval(timer);
+      target.style.display = 'none';
+      start.disabled = false;
+      message.textContent = 'Final score: ' + score + '. Ready for another round?';
+    }
+
+    function begin() {
+      clearInterval(timer);
+      score = 0;
+      time = 20;
+      scoreLabel.textContent = score;
+      timeLabel.textContent = time;
+      start.disabled = true;
+      target.style.display = 'block';
+      message.textContent = 'Go!';
+      moveTarget();
+      timer = setInterval(() => {
+        time -= 1;
+        timeLabel.textContent = time;
+        if (time <= 0) finish();
+      }, 1000);
+    }
+
+    target.addEventListener('click', (event) => {
+      event.stopPropagation();
+      if (time <= 0) return;
+      score += 1;
+      scoreLabel.textContent = score;
+      moveTarget();
+    });
+    start.addEventListener('click', begin);
+  </script>
+</body>
+</html>
