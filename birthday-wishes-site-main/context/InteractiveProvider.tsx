@@ -63,7 +63,7 @@ export default function InteractiveProvider({ children }: { children: React.Reac
   useEffect(()=>{ initLenis() }, [])
 
   useEffect(() => {
-    const src = phase === 1 ? content.hero.audioSrc : content.phaseTwo.audioSrc
+    const src = content.hero.audioSrc
     if (!src) return
     const sound = new Howl({ src: [withBasePath(src)], volume: 0, loop: true })
     soundRef.current = sound
@@ -90,7 +90,7 @@ export default function InteractiveProvider({ children }: { children: React.Reac
       window.removeEventListener('keydown', tryPlay)
       sound.unload()
     }
-  }, [phase])
+  }, [])
 
   const toggleAmbient = useCallback(() => {
     const sound = soundRef.current
