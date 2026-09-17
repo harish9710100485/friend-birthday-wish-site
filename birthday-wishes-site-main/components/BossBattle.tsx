@@ -19,9 +19,11 @@ export default function BossBattle(){
         <p className="mx-auto mt-5 max-w-xl text-[#D8C8B5]">{bossIntro}</p>
         <div className="mt-10 overflow-hidden rounded-3xl border border-[#E7B56A]/30 bg-[#171119] p-2 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
           <iframe
-            src={withBasePath('/games/target-dash.html')}
-            title="Play Target Dash"
+            src="https://www.onlinegames.io/monster-survivors/"
+            title="Play Monster Survivors"
             className="aspect-[4/3] w-full rounded-2xl border-0 sm:aspect-video"
+            loading="lazy"
+            allow="fullscreen; autoplay; gamepad"
           />
         </div>
       </div>
